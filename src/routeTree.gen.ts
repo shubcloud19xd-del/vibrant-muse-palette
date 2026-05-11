@@ -14,6 +14,9 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppTaskTaskIdRouteImport } from './routes/app.task.$taskId'
+import { Route as AppProjectProjectIdRouteImport } from './routes/app.project.$projectId'
+import { Route as AppOrgOrgIdRouteImport } from './routes/app.org.$orgId'
 
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
@@ -40,6 +43,21 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppTaskTaskIdRoute = AppTaskTaskIdRouteImport.update({
+  id: '/task/$taskId',
+  path: '/task/$taskId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProjectProjectIdRoute = AppProjectProjectIdRouteImport.update({
+  id: '/project/$projectId',
+  path: '/project/$projectId',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOrgOrgIdRoute = AppOrgOrgIdRouteImport.update({
+  id: '/org/$orgId',
+  path: '/org/$orgId',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,12 +65,18 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/app/': typeof AppIndexRoute
+  '/app/org/$orgId': typeof AppOrgOrgIdRoute
+  '/app/project/$projectId': typeof AppProjectProjectIdRoute
+  '/app/task/$taskId': typeof AppTaskTaskIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/app': typeof AppIndexRoute
+  '/app/org/$orgId': typeof AppOrgOrgIdRoute
+  '/app/project/$projectId': typeof AppProjectProjectIdRoute
+  '/app/task/$taskId': typeof AppTaskTaskIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,13 +85,40 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/app/': typeof AppIndexRoute
+  '/app/org/$orgId': typeof AppOrgOrgIdRoute
+  '/app/project/$projectId': typeof AppProjectProjectIdRoute
+  '/app/task/$taskId': typeof AppTaskTaskIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/login' | '/signup' | '/app/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/signup'
+    | '/app/'
+    | '/app/org/$orgId'
+    | '/app/project/$projectId'
+    | '/app/task/$taskId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/signup' | '/app'
-  id: '__root__' | '/' | '/app' | '/login' | '/signup' | '/app/'
+  to:
+    | '/'
+    | '/login'
+    | '/signup'
+    | '/app'
+    | '/app/org/$orgId'
+    | '/app/project/$projectId'
+    | '/app/task/$taskId'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/signup'
+    | '/app/'
+    | '/app/org/$orgId'
+    | '/app/project/$projectId'
+    | '/app/task/$taskId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -114,15 +165,42 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/task/$taskId': {
+      id: '/app/task/$taskId'
+      path: '/task/$taskId'
+      fullPath: '/app/task/$taskId'
+      preLoaderRoute: typeof AppTaskTaskIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/project/$projectId': {
+      id: '/app/project/$projectId'
+      path: '/project/$projectId'
+      fullPath: '/app/project/$projectId'
+      preLoaderRoute: typeof AppProjectProjectIdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/org/$orgId': {
+      id: '/app/org/$orgId'
+      path: '/org/$orgId'
+      fullPath: '/app/org/$orgId'
+      preLoaderRoute: typeof AppOrgOrgIdRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
+  AppOrgOrgIdRoute: typeof AppOrgOrgIdRoute
+  AppProjectProjectIdRoute: typeof AppProjectProjectIdRoute
+  AppTaskTaskIdRoute: typeof AppTaskTaskIdRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppIndexRoute: AppIndexRoute,
+  AppOrgOrgIdRoute: AppOrgOrgIdRoute,
+  AppProjectProjectIdRoute: AppProjectProjectIdRoute,
+  AppTaskTaskIdRoute: AppTaskTaskIdRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
