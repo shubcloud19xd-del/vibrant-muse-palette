@@ -1,6 +1,7 @@
 import { createFileRoute, Outlet, Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/auth";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/app")({
   component: AppLayout,
@@ -11,12 +12,32 @@ function AppLayout() {
   const { user, loading, signOut } = useAuth();
   const nav = useNavigate();
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const [validated, setValidated] = useState(false);
+
+  // Re-validate the user against Supabase on every protected route mount,
+  // so a stale or revoked token can't show another user's data.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const { data, error } = await supabase.auth.getUser();
+      if (cancelled) return;
+      if (error || !data.user) {
+        await supabase.auth.signOut().catch(() => {});
+        nav({ to: "/login" });
+      } else {
+        setValidated(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [nav]);
 
   useEffect(() => {
     if (!loading && !user) nav({ to: "/login" });
   }, [user, loading, nav]);
 
-  if (loading || !user) {
+  if (loading || !user || !validated) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-canvas text-ink/60">Loading…</div>
     );

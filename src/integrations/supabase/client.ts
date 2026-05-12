@@ -2,9 +2,19 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
+function getTabStorageKey() {
+  if (typeof window === 'undefined') return 'henwork-auth-ssr';
+  // Unique per browser tab: persists across navigation within the tab,
+  // but each new tab gets its own key so sessions don't collide.
+  let key = window.sessionStorage.getItem('henwork-auth-key');
+  if (!key) {
+    key = `henwork-auth-${crypto.randomUUID()}`;
+    window.sessionStorage.setItem('henwork-auth-key', key);
+  }
+  return key;
+}
+
 function createSupabaseClient() {
-  // Use import.meta.env for client-side (Vite build-time replacement)
-  // Fall back to process.env for SSR (server-side rendering)
   const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
   const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_PUBLISHABLE_KEY;
 
@@ -20,10 +30,13 @@ function createSupabaseClient() {
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
     auth: {
-      storage: typeof window !== 'undefined' ? localStorage : undefined,
+      // sessionStorage isolates auth per tab (localStorage would share across tabs).
+      storage: typeof window !== 'undefined' ? window.sessionStorage : undefined,
+      storageKey: getTabStorageKey(),
       persistSession: true,
       autoRefreshToken: true,
-    }
+      detectSessionInUrl: true,
+    },
   });
 }
 
