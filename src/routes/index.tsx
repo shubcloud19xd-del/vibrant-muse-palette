@@ -5,11 +5,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Robin — A calmer way to manage team work" },
+      { title: "HenWork — A calmer way to manage team work" },
       {
         name: "description",
         content:
-          "Organize teams, projects, and tasks in one calm, beautiful workspace. Robin keeps your work flowing without the noise.",
+          "Organize teams, projects, and tasks in one calm, beautiful workspace. HenWork keeps your work flowing without the noise.",
       },
     ],
   }),
@@ -27,7 +27,7 @@ function Index() {
           alt=""
           width={1920}
           height={1080}
-          className="pointer-events-none absolute inset-x-0 bottom-0 w-full select-none"
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full select-none lg:-translate-y-20 xl:-translate-y-32"
           aria-hidden
         />
 
@@ -36,7 +36,7 @@ function Index() {
             <div className="flex items-center gap-10">
               <Link to="/" className="flex items-center gap-2 font-serif text-2xl font-bold tracking-tight text-ink">
                 <span aria-hidden className="text-[1.4rem]">🐦</span>
-                Robin
+                HenWork
               </Link>
               <nav className="hidden items-center gap-7 text-sm font-medium text-ink/85 lg:flex">
                 {navLinks.map((l) => (
@@ -112,8 +112,8 @@ function Index() {
 
       <footer className="border-t border-ink/10 bg-canvas px-6 py-10 text-sm text-ink/70">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 sm:flex-row">
-          <span className="font-serif text-lg text-ink">🐦 Robin</span>
-          <span>© {new Date().getFullYear()} Robin Workspace.</span>
+          <span className="font-serif text-lg text-ink">🐦 HenWork</span>
+          <span>© {new Date().getFullYear()} HenWork Workspace.</span>
         </div>
       </footer>
     </div>
