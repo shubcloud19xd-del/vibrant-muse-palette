@@ -21,13 +21,13 @@ function Index() {
   return (
     <div className="min-h-screen bg-canvas font-sans text-ink">
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-sky" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-sky lg:hidden" aria-hidden />
         <img
           src={heroLandscape}
           alt=""
           width={1920}
           height={1080}
-          className="pointer-events-none absolute inset-x-0 bottom-0 w-full select-none lg:-translate-y-56 xl:-translate-y-72 2xl:-translate-y-96"
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full select-none lg:bottom-auto lg:top-0"
           aria-hidden
         />
 
