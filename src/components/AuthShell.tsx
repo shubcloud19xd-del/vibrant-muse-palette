@@ -15,7 +15,7 @@ export function AuthShell({ title, subtitle, children }: { title: string; subtit
       <div className="relative z-10 flex min-h-screen flex-col">
         <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-5">
           <Link to="/" className="flex items-center gap-2 font-serif text-2xl font-bold tracking-tight">
-            <span aria-hidden>🐦</span> Robin
+            <span aria-hidden>🐦</span> HenWork
           </Link>
         </header>
         <main className="flex flex-1 items-center justify-center px-6 pb-32">

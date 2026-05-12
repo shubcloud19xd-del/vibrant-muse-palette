@@ -4,7 +4,7 @@ import { useAuth } from "@/lib/auth";
 
 export const Route = createFileRoute("/app")({
   component: AppLayout,
-  head: () => ({ meta: [{ title: "Workspace — Robin" }] }),
+  head: () => ({ meta: [{ title: "Workspace — HenWork" }] }),
 });
 
 function AppLayout() {
@@ -27,7 +27,7 @@ function AppLayout() {
       <header className="sticky top-0 z-20 border-b border-ink/10 bg-gradient-sky/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link to="/app" className="flex items-center gap-2 font-serif text-xl font-bold">
-            <span aria-hidden>🐦</span> Robin
+            <span aria-hidden>🐦</span> HenWork
           </Link>
           <nav className="hidden items-center gap-6 text-sm font-medium text-ink/80 md:flex">
             <Link to="/app" className={pathname === "/app" ? "text-ink" : "hover:text-ink"}>

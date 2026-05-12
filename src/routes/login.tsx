@@ -7,7 +7,7 @@ import { AuthShell, Field, PrimaryButton } from "@/components/AuthShell";
 
 export const Route = createFileRoute("/login")({
   component: LoginPage,
-  head: () => ({ meta: [{ title: "Sign in — Robin" }] }),
+  head: () => ({ meta: [{ title: "Sign in — HenWork" }] }),
 });
 
 function LoginPage() {
