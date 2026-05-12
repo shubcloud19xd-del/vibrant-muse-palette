@@ -27,7 +27,7 @@ function Index() {
           alt=""
           width={1920}
           height={1080}
-          className="pointer-events-none absolute inset-x-0 bottom-0 w-full select-none lg:-translate-y-20 xl:-translate-y-32"
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full select-none lg:-translate-y-56 xl:-translate-y-72 2xl:-translate-y-96"
           aria-hidden
         />
 
