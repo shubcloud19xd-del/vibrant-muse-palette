@@ -62,7 +62,7 @@ function Index() {
             </div>
           </header>
 
-          <section className="mx-auto max-w-5xl px-6 pt-16 pb-[28rem] text-center sm:pb-[34rem] md:pt-24 md:pb-[40rem]">
+          <section className="mx-auto max-w-5xl px-6 pt-16 pb-[28rem] text-center sm:pb-[34rem] md:pt-24 md:pb-[40rem] lg:pb-40">
             <h1 className="font-serif text-5xl leading-[1.05] text-ink sm:text-6xl md:text-7xl">
               Team work, finally
               <br />
@@ -84,9 +84,9 @@ function Index() {
         </div>
       </div>
 
-      <section className="bg-canvas px-6 pt-12 pb-24 sm:pt-16">
+      <section className="bg-canvas px-6 pt-8 pb-16 sm:pt-10 lg:pt-6 lg:pb-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="-ml-1 max-w-3xl font-serif text-4xl leading-tight text-ink sm:-ml-2 sm:text-5xl">
+          <h2 className="max-w-3xl text-left font-serif text-4xl leading-tight text-ink sm:text-5xl">
             Everything your team needs. Nothing it doesn't.
           </h2>
           <div className="mt-16 grid gap-10 md:grid-cols-3">
