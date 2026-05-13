@@ -72,7 +72,7 @@ function Index() {
               Organize your team, projects, and tasks in one beautiful workspace —
               <br className="hidden sm:block" /> built for clarity, not clutter.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <Link
                 to="/signup"
                 className="rounded-md bg-ink px-8 py-3.5 text-base font-medium text-canvas shadow-soft transition hover:-translate-y-0.5"
