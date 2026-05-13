@@ -32,10 +32,10 @@ function Index() {
         />
 
         <div className="relative z-10">
-          <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+          <header className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 sm:py-5">
             <div className="flex items-center gap-10">
-              <Link to="/" className="flex items-center gap-2 font-serif text-2xl font-bold tracking-tight text-ink">
-                <span aria-hidden className="text-[1.4rem]">🐦</span>
+              <Link to="/" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-ink sm:text-2xl">
+                <span aria-hidden className="text-[1.2rem] sm:text-[1.4rem]">🐦</span>
                 HenWork
               </Link>
               <nav className="hidden items-center gap-7 text-sm font-medium text-ink/85 lg:flex">
@@ -46,16 +46,16 @@ function Index() {
                 ))}
               </nav>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex shrink-0 items-center gap-2">
               <Link
                 to="/login"
-                className="rounded-md border border-ink/15 bg-white/70 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white"
+                className="whitespace-nowrap rounded-md border border-ink/15 bg-white/70 px-3 py-1.5 text-xs font-medium text-ink transition hover:bg-white sm:px-4 sm:py-2 sm:text-sm"
               >
                 Sign in
               </Link>
               <Link
                 to="/signup"
-                className="rounded-md bg-ink px-4 py-2 text-sm font-medium text-canvas transition hover:bg-ink/90"
+                className="whitespace-nowrap rounded-md bg-ink px-3 py-1.5 text-xs font-medium text-canvas transition hover:bg-ink/90 sm:px-4 sm:py-2 sm:text-sm"
               >
                 Get started
               </Link>
@@ -72,7 +72,7 @@ function Index() {
               Organize your team, projects, and tasks in one beautiful workspace —
               <br className="hidden sm:block" /> built for clarity, not clutter.
             </p>
-            <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <Link
                 to="/signup"
                 className="rounded-md bg-ink px-8 py-3.5 text-base font-medium text-canvas shadow-soft transition hover:-translate-y-0.5"
