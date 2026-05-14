@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import heroLandscape from "@/assets/hero-landscape.jpg";
 
 export const Route = createFileRoute("/")({
@@ -33,10 +33,10 @@ function Index() {
 
         <div className="relative z-10">
           <header className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 sm:py-5 lg:grid lg:grid-cols-3">
-            <Link to="/" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-ink sm:text-2xl lg:justify-self-start">
+            <a href="/" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-ink sm:text-2xl lg:justify-self-start">
               <span aria-hidden className="text-[1.2rem] sm:text-[1.4rem]">🐦</span>
               HenWork
-            </Link>
+            </a>
             <nav className="hidden items-center gap-7 text-sm font-medium text-ink/85 lg:flex lg:justify-self-center">
               {navLinks.map((l) => (
                 <a key={l} href="#" className="transition hover:text-ink">
@@ -45,18 +45,18 @@ function Index() {
               ))}
             </nav>
             <div className="flex shrink-0 items-center gap-2 lg:justify-self-end">
-              <Link
-                to="/login"
+              <a
+                href="#"
                 className="whitespace-nowrap rounded-md border border-ink/15 bg-white/70 px-3 py-1.5 text-xs font-medium text-ink transition hover:bg-white sm:px-4 sm:py-2 sm:text-sm"
               >
                 Sign in
-              </Link>
-              <Link
-                to="/signup"
+              </a>
+              <a
+                href="#"
                 className="whitespace-nowrap rounded-md bg-ink px-3 py-1.5 text-xs font-medium text-canvas transition hover:bg-ink/90 sm:px-4 sm:py-2 sm:text-sm"
               >
                 Get started
-              </Link>
+              </a>
             </div>
           </header>
 
@@ -71,12 +71,12 @@ function Index() {
               <br className="hidden sm:block" /> built for clarity, not clutter.
             </p>
             <div className="mt-10 flex justify-center">
-              <Link
-                to="/signup"
+              <a
+                href="#"
                 className="rounded-md bg-ink px-8 py-3.5 text-base font-medium text-canvas shadow-soft transition hover:-translate-y-0.5"
               >
                 Create your workspace
-              </Link>
+              </a>
             </div>
           </section>
         </div>
