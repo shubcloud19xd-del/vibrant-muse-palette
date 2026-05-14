@@ -32,21 +32,19 @@ function Index() {
         />
 
         <div className="relative z-10">
-          <header className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 sm:py-5">
-            <div className="flex items-center gap-10">
-              <Link to="/" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-ink sm:text-2xl">
-                <span aria-hidden className="text-[1.2rem] sm:text-[1.4rem]">🐦</span>
-                HenWork
-              </Link>
-              <nav className="hidden items-center gap-7 text-sm font-medium text-ink/85 lg:flex">
-                {navLinks.map((l) => (
-                  <a key={l} href="#" className="transition hover:text-ink">
-                    {l}
-                  </a>
-                ))}
-              </nav>
-            </div>
-            <div className="flex shrink-0 items-center gap-2">
+          <header className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 sm:py-5 lg:grid lg:grid-cols-3">
+            <Link to="/" className="flex items-center gap-2 font-serif text-xl font-bold tracking-tight text-ink sm:text-2xl lg:justify-self-start">
+              <span aria-hidden className="text-[1.2rem] sm:text-[1.4rem]">🐦</span>
+              HenWork
+            </Link>
+            <nav className="hidden items-center gap-7 text-sm font-medium text-ink/85 lg:flex lg:justify-self-center">
+              {navLinks.map((l) => (
+                <a key={l} href="#" className="transition hover:text-ink">
+                  {l}
+                </a>
+              ))}
+            </nav>
+            <div className="flex shrink-0 items-center gap-2 lg:justify-self-end">
               <Link
                 to="/login"
                 className="whitespace-nowrap rounded-md border border-ink/15 bg-white/70 px-3 py-1.5 text-xs font-medium text-ink transition hover:bg-white sm:px-4 sm:py-2 sm:text-sm"
