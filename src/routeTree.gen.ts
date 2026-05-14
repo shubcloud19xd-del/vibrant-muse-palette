@@ -9,148 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AppIndexRouteImport } from './routes/app.index'
-import { Route as AppTaskTaskIdRouteImport } from './routes/app.task.$taskId'
-import { Route as AppProjectProjectIdRouteImport } from './routes/app.project.$projectId'
-import { Route as AppOrgOrgIdRouteImport } from './routes/app.org.$orgId'
 
-const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AppRoute = AppRouteImport.update({
-  id: '/app',
-  path: '/app',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppIndexRoute = AppIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppTaskTaskIdRoute = AppTaskTaskIdRouteImport.update({
-  id: '/task/$taskId',
-  path: '/task/$taskId',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppProjectProjectIdRoute = AppProjectProjectIdRouteImport.update({
-  id: '/project/$projectId',
-  path: '/project/$projectId',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppOrgOrgIdRoute = AppOrgOrgIdRouteImport.update({
-  id: '/org/$orgId',
-  path: '/org/$orgId',
-  getParentRoute: () => AppRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/app': typeof AppRouteWithChildren
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
-  '/app/': typeof AppIndexRoute
-  '/app/org/$orgId': typeof AppOrgOrgIdRoute
-  '/app/project/$projectId': typeof AppProjectProjectIdRoute
-  '/app/task/$taskId': typeof AppTaskTaskIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
-  '/app': typeof AppIndexRoute
-  '/app/org/$orgId': typeof AppOrgOrgIdRoute
-  '/app/project/$projectId': typeof AppProjectProjectIdRoute
-  '/app/task/$taskId': typeof AppTaskTaskIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/app': typeof AppRouteWithChildren
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
-  '/app/': typeof AppIndexRoute
-  '/app/org/$orgId': typeof AppOrgOrgIdRoute
-  '/app/project/$projectId': typeof AppProjectProjectIdRoute
-  '/app/task/$taskId': typeof AppTaskTaskIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/app'
-    | '/login'
-    | '/signup'
-    | '/app/'
-    | '/app/org/$orgId'
-    | '/app/project/$projectId'
-    | '/app/task/$taskId'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/login'
-    | '/signup'
-    | '/app'
-    | '/app/org/$orgId'
-    | '/app/project/$projectId'
-    | '/app/task/$taskId'
-  id:
-    | '__root__'
-    | '/'
-    | '/app'
-    | '/login'
-    | '/signup'
-    | '/app/'
-    | '/app/org/$orgId'
-    | '/app/project/$projectId'
-    | '/app/task/$taskId'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AppRoute: typeof AppRouteWithChildren
-  LoginRoute: typeof LoginRoute
-  SignupRoute: typeof SignupRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/app': {
-      id: '/app'
-      path: '/app'
-      fullPath: '/app'
-      preLoaderRoute: typeof AppRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -158,69 +48,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/app/': {
-      id: '/app/'
-      path: '/'
-      fullPath: '/app/'
-      preLoaderRoute: typeof AppIndexRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/task/$taskId': {
-      id: '/app/task/$taskId'
-      path: '/task/$taskId'
-      fullPath: '/app/task/$taskId'
-      preLoaderRoute: typeof AppTaskTaskIdRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/project/$projectId': {
-      id: '/app/project/$projectId'
-      path: '/project/$projectId'
-      fullPath: '/app/project/$projectId'
-      preLoaderRoute: typeof AppProjectProjectIdRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/app/org/$orgId': {
-      id: '/app/org/$orgId'
-      path: '/org/$orgId'
-      fullPath: '/app/org/$orgId'
-      preLoaderRoute: typeof AppOrgOrgIdRouteImport
-      parentRoute: typeof AppRoute
-    }
   }
 }
 
-interface AppRouteChildren {
-  AppIndexRoute: typeof AppIndexRoute
-  AppOrgOrgIdRoute: typeof AppOrgOrgIdRoute
-  AppProjectProjectIdRoute: typeof AppProjectProjectIdRoute
-  AppTaskTaskIdRoute: typeof AppTaskTaskIdRoute
-}
-
-const AppRouteChildren: AppRouteChildren = {
-  AppIndexRoute: AppIndexRoute,
-  AppOrgOrgIdRoute: AppOrgOrgIdRoute,
-  AppProjectProjectIdRoute: AppProjectProjectIdRoute,
-  AppTaskTaskIdRoute: AppTaskTaskIdRoute,
-}
-
-const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AppRoute: AppRouteWithChildren,
-  LoginRoute: LoginRoute,
-  SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
