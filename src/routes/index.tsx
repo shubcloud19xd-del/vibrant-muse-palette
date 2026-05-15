@@ -84,9 +84,9 @@ function Index() {
         </div>
       </div>
 
-      <section className="bg-canvas px-6 pt-12 pb-24 sm:pt-16">
+      <section className="bg-canvas px-6 py-24">
         <div className="mx-auto max-w-6xl">
-          <h2 className="-ml-1 max-w-3xl font-serif text-4xl leading-tight text-ink sm:-ml-2 sm:text-5xl">
+          <h2 className="max-w-3xl font-serif text-4xl leading-tight text-ink sm:text-5xl">
             Everything your team needs. Nothing it doesn't.
           </h2>
           <div className="mt-16 grid gap-10 md:grid-cols-3">
