@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import heroLandscape from "@/assets/hero-landscape.jpg";
 
 export const Route = createFileRoute("/")({
@@ -45,18 +45,18 @@ function Index() {
               ))}
             </nav>
             <div className="flex shrink-0 items-center gap-2 lg:justify-self-end">
-              <a
-                href="#"
+              <Link
+                to="/login"
                 className="whitespace-nowrap rounded-md border border-ink/15 bg-white/70 px-3 py-1.5 text-xs font-medium text-ink transition hover:bg-white sm:px-4 sm:py-2 sm:text-sm"
               >
                 Sign in
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/signup"
                 className="whitespace-nowrap rounded-md bg-ink px-3 py-1.5 text-xs font-medium text-canvas transition hover:bg-ink/90 sm:px-4 sm:py-2 sm:text-sm"
               >
                 Get started
-              </a>
+              </Link>
             </div>
           </header>
 
@@ -71,12 +71,12 @@ function Index() {
               <br className="hidden sm:block" /> built for clarity, not clutter.
             </p>
             <div className="mt-10 flex justify-center">
-              <a
-                href="#"
+              <Link
+                to="/signup"
                 className="rounded-md bg-ink px-8 py-3.5 text-base font-medium text-canvas shadow-soft transition hover:-translate-y-0.5"
               >
                 Create your workspace
-              </a>
+              </Link>
             </div>
           </section>
         </div>
